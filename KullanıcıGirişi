@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+/** @author irem sıla boyraz
+ */
+
+public class Kullanıcıgiris {
+    public static void main(String[] args){
+        //Değişkenleri belirleyelim
+
+        String username,password,cevap,newpassword;
+        //Kullanıcıdan giriş almak için scanner sınıfını kulllanalım
+        Scanner input=new Scanner(System.in);
+        //Kullanıcıdan kullanıcı adı ve şifre girmesini isteyelim
+
+        System.out.printf("Kulanıcı adını giriniz:");
+        username=input.nextLine();
+
+        System.out.printf("Şifrenizi giriniz:");
+        password= input.nextLine();
+        //kullanıcı adını irem sıla ve şifreyi 258456 olarak belirleyelim
+
+        //kullanıcının bilgileri doğru girme durumunda giriş başarılı yazdıralım
+
+          if (username.equals("irem sıla") && password.equals("258456")){
+            System.out.printf("Giriş başarılı");
+            //kullanıcının sadece adının doğru olması durumunda şifre değiştirmesini isteyelim
+          }else{
+              if (username.equals("irem sıla")){
+
+                  System.out.println("Şifre hatalı!");
+                  System.out.printf("Şifrenizi değiştirmek ister misiniz?");
+                  cevap= input.nextLine();
+
+                      switch (cevap){
+
+                       case "evet":
+
+
+                          System.out.printf("Yeni şifreyi giriniz:");
+                          newpassword=input.nextLine();
+                          //Yeni şifre eski şifreyle ve kullanıcının girdiği son şifreyle aynı olamaz
+
+                            if (newpassword.equals("258456") || (newpassword.equals(password))){
+                              System.out.printf("Yeni şifre eski şifreyle ve son denemenizle aynı olamaz!");
+
+                              break;
+
+                            }else;
+                              System.out.printf("Yeni şifre oluşturuldu");
+
+                              break;
+
+
+                       //Şifreyi değiştirmek istememe durumunu değerlendirelim
+                       case "hayır":
+                          System.out.printf("Güle güle");
+
+                        }
+              //kullanıcı adının yanlış oması durumu
+              }else
+                  System.out.printf("Bu isimde bir kullanıcı bulunamadı!");
+            }
+        }
+    }
